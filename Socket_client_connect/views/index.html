@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dashboard</title>
+  <script src="https://cdn.socket.io/4.2.0/socket.io.min.js"></script>
+</head>
+<body>
+  <h1>Dashboard</h1>
+  <div id="dashboardData"></div>
+
+  <script>
+    const socket = io();
+    const dashboardData = document.getElementById('dashboardData');
+
+    // Listen for incoming data from the server
+    socket.on('dashboardData', (data) => {
+      // Update the dashboard with the incoming data
+      dashboardData.innerHTML = JSON.stringify(data);
+    });
+  </script>
+</body>
+</html>
